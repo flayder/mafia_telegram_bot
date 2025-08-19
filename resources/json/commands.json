@@ -1,0 +1,624 @@
+{
+    "thisbot": [
+        {
+            "text": "Это служебная команда. Редактируйте ее только, если понимаете для чего она предназначена",
+            "name": "mafiya",
+            "nic": "",
+            "bot_id": "70",
+            "manager_id": "376753094",
+            "bot_api": ""
+        }
+    ],
+    "prezident_ukaz_yes": [
+        {
+            "text": "Какой указ хотите издать?",
+            "inline": [
+                [
+                    {
+                        "text": "Поменять Жителя ночи с миром",
+                        "callback_data": "prezident_changemir"
+                    }
+                ],
+                [
+                    {
+                        "text": "Цыганка увидит видение прошлой ночи",
+                        "callback_data": "prezident_cigankanight"
+                    }
+                ]
+            ],
+            "caption": "1"
+        }
+    ],
+    "prezident_ukaz_no": [
+        {
+            "text": "ОК. Этой ночью без указа"
+        }
+    ],
+    "prezident_changemir": [
+        {
+            "message": "Поменять Жителя ночи с миром",
+            "text": "Вы издали указ о смене жителя ночи с мирной ролью...",
+            "title": "<b>🧑🏻‍💼Президент</b> издал указ. Житель ночи меняется с мирной ролью...",
+            "caption": "1",
+            "description": "action:change_mirs"
+        }
+    ],
+    "prezident_cigankanight": [
+        {
+            "message": "Цыганка увидит ведение прошлой ночи",
+            "text": "Вы издали указ, теперь цыганка может увидеть больше. Данная информация может пригодиться...",
+            "title": "<b>🧑🏻‍💼Президент</b> издал указ. Теперь цыганка может увидеть больше...",
+            "caption": "1",
+            "description": "action:prezident_cigankaview"
+        }
+    ],
+    "puaro_kill": [
+        {
+            "text": "Чью жизнь отнимете сегодня?",
+            "inline": [
+                [
+                    {
+                        "text": "#username",
+                        "is_kill": 1,
+                        "callback_data": "puaroukill_#id",
+                        "pattern": {
+                            "model": "GameUser",
+                            "where": "is_active=1 and game_id=#game_id and role_id not in (4,5)",
+                            "params": {
+                                "username": "user",
+                                "id": "id",
+                                "game_id": "game_id"
+                            }
+                        }
+                    }
+                ]
+            ],
+            "caption": "4"
+        }
+    ],
+    "puaro_check": [
+        {
+            "text": "Чьи документы проверите сегодня?",
+            "inline": [
+                [
+                    {
+                        "text": "#username",
+                        "callback_data": "puaroucheck_#id",
+                        "pattern": {
+                            "model": "GameUser",
+                            "where": "is_active=1 and game_id=#game_id  and role_id not in (4,5)",
+                            "params": {
+                                "username": "user",
+                                "id": "id",
+                                "game_id": "game_id"
+                            }
+                        }
+                    }
+                ]
+            ],
+            "caption": "4"
+        }
+    ],
+    "stud_fak_": [
+        {
+            "text": "Твой выбор: #func_result\n",
+            "caption": "21",
+            "title": "<b>👩‍🎓Студент</b> получает профессию...",
+            "description": "action:student_fak_select"
+        }
+    ],
+    "zelje_lechebn": [
+        {
+            "text": "Выбери для кого этой ночью ты сваришь лечебное зелье, кому сегодня повезет?\n",
+            "inline": [
+                [
+                    {
+                        "text": "#username",
+                        "callback_data": "vedma_lechit_#id",
+                        "pattern": {
+                            "model": "GameUser",
+                            "where": "is_active=1 and game_id=#game_id",
+                            "params": {
+                                "username": "user",
+                                "id": "id",
+                                "game_id": "game_id"
+                            }
+                        }
+                    }
+                ]
+            ]
+        }
+    ],
+    "zelje_zamorozka": [
+        {
+            "text": "Выбери для кого этой ночью ты сваришь зелье заморозки, кого ты остановишь в эту ночь?\n",
+            "inline": [
+                [
+                    {
+                        "text": "#username",
+                        "is_stop": 1,
+                        "callback_data": "vedma_morozit_#id",
+                        "pattern": {
+                            "model": "GameUser",
+                            "where": "is_active=1 and game_id=#game_id",
+                            "params": {
+                                "username": "user",
+                                "id": "id",
+                                "game_id": "game_id"
+                            }
+                        }
+                    }
+                ]
+            ]
+        }
+    ],
+    "zelje_kill": [
+        {
+            "text": "Выбери для кого этой ночью ты сваришь убийственное зелье, с кем мы попрощаемся в эту ночь?\n",
+            "inline": [
+                [
+                    {
+                        "text": "#username",
+                        "is_kill": 1,
+                        "callback_data": "vedma_kill_#id",
+                        "pattern": {
+                            "model": "GameUser",
+                            "where": "is_active=1 and game_id=#game_id",
+                            "params": {
+                                "username": "user",
+                                "id": "id",
+                                "game_id": "game_id"
+                            }
+                        }
+                    }
+                ]
+            ]
+        }
+    ],
+    "oboroten_sel_maf": [
+        {
+            "text": "Ваш выбор: Мафия",
+            "title": "<b>🐾 Оборотень</b> выбрал свою сторону...",
+            "caption": "37",
+            "description": "action:oboroten_sel_maf"
+        }
+    ],
+    "oboroten_sel_mir": [
+        {
+            "text": "Ваш выбор: Мирные",
+            "title": "<b>🐾 Оборотень</b> выбрал свою сторону...",
+            "caption": "37",
+            "description": "action:oboroten_sel_mir"
+        }
+    ],
+    "puaroucheck_": [
+        {
+            "text": "Вы взяли документы #username\n\n#func_result",
+            "title": "<b>🕵🏻‍♀ Комиссар Пуаро</b> ищет преступников...",
+            "caption": "4",
+            "description": "action:puaro_check"
+        }
+    ],
+    "puaroukill_": [
+        {
+            "caption": "4",
+            "text": "Вы убили #username",
+            "title": "<b>🕵🏻‍♀Комиссар Пуаро</b> решил, кто не проснётся этим утром... ",
+            "description": "action:puaro_kill"
+        }
+    ],
+    "poetvisit_": [
+        {
+            "text": "Вы отправились за вдохновением к #username",
+            "title": "<b>🧙🏼Бездомный поэт</b> пошёл искать вдохновение...",
+            "caption": "3",
+            "description": "action:poetfind"
+        }
+    ],
+    "krasotkavisit_": [
+        {
+            "text": "Вы идете очаровывать #username.",
+            "title": "<b>💃Красотка</b> уже очаровывает кого-то...",
+            "caption": "6",
+            "description": "action:krasotka_select"
+        }
+    ],
+    "lubovnikvisit_": [
+        {
+            "text": "Вы выбрали #username.",
+            "title": "<b>🕺Любовник</b> ищет вторую половинку...",
+            "caption": "7",
+            "description": "action:lubovnik_find"
+        }
+    ],
+    "dublervisit_": [
+        {
+            "text": "Твой выбор выпал на #username",
+            "caption": "8",
+            "title": "<b>👀 Дублер</b> уже следит за кем-то...",
+            "description": "action:dubler_select"
+        }
+    ],
+    "oderjimvisit_": [
+        {
+            "text": "#username стал вашим идолом! Берегите его..\n",
+            "caption": "10",
+            "title": "<b>🤩Одержимый</b> уже выбрал своего идола...",
+            "description": "action:oderjim_select"
+        }
+    ],
+    "cigankavisit_": [
+        {
+            "text": "Ваш выбор #username",
+            "caption": "12",
+            "title": "<b>🔮Цыганка</b> видит очередное ведение...",
+            "description": "action:ciganka_select"
+        }
+    ],
+    "krestnotecsave_": [
+        {
+            "text": "Вы выбрали : #username",
+            "title": "<b>👨🏻‍🦰Крестный отец</b> ушёл кого-то защищать...",
+            "caption": "13",
+            "description": "action:krestnotec_save"
+        }
+    ],
+    "doctortreat_": [
+        {
+            "text": "Вы навестили #username",
+            "caption": "15",
+            "title": "<b>👨🏼‍⚕Доктор</b> выбрал, кого спасёт этой ночью...",
+            "description": "action:doctor_treat"
+        }
+    ],
+    "mafdoctreat_": [
+        {
+            "text": "ваш выбор: #username",
+            "caption": "16",
+            "title": "<b>👩🏻‍⚕Подпольный врач</b> выбрал, кого он вылечит этой ночью...",
+            "description": "action:mafdoc_treat"
+        }
+    ],
+    "karleoneselect_": [
+        {
+            "text": "ваш выбор: #username",
+            "caption": "17",
+            "title": "<b>🤵🏻Дон Корлеоне</b> уже выбрал, кто умрёт этой ночью...",
+            "description": "action:karleone_select"
+        }
+    ],
+    "blackladyselect_": [
+        {
+            "text": "на какую роль будем проверять?",
+            "caption": "18",
+            "description": "action:blacklady_selectuser",
+            "inline": [
+                [
+                    {
+                        "text": "#rolename",
+                        "callback_data": "blacklady_selrole_#id",
+                        "pattern": {
+                            "model": "GameRole",
+                            "where": "id in (#active_role_ids) and id not in (17,18,19,22,25)",
+                            "params": {
+                                "rolename": "name",
+                                "id": "id"
+                            }
+                        }
+                    }
+                ]
+            ]
+        }
+    ],
+    "blacklady_selrole_": [
+        {
+            "text": "Ты отправилась проверять #blacklady_selectgamerusername на роль #gamerole",
+            "title": "<b>🤵🏻‍♀️ Черная леди</b> пошла узнавать чью-то роль...",
+            "caption": "18",
+            "description": "action:blacklady_selectrole"
+        }
+    ],
+    "advokatselect_": [
+        {
+            "text": "Твой выбор: #username",
+            "caption": "19",
+            "title": "<b>👨🏼‍💼Адвокат</b> готовит поддельные документы...",
+            "description": "action:advokat_select"
+        }
+    ],
+    "dvulikiyselect_": [
+        {
+            "text": "Твой выбор: #username",
+            "title": "<b>🎭Двуликий</b> в поиске союзников...",
+            "caption": "20",
+            "description": "action:dvulikiy_select"
+        }
+    ],
+    "dvulikiykill_": [
+        {
+            "text": "Твой выбор: #username",
+            "title": "<b>🎭Двуликий</b> готовит план возмездия...",
+            "caption": "20",
+            "description": "action:dvulikiy_kill"
+        }
+    ],
+    "professorselect_": [
+        {
+            "text": "Твой выбор: #username",
+            "caption": "22",
+            "title": "<b>👨🏻‍🏫Профессор</b> ищет своего ученика..",
+            "description": "action:professor_select"
+        }
+    ],
+    "ugolovnikselect_": [
+        {
+            "caption": "23",
+            "text": "Твой выбор: #username",
+            "title": "<b>🤵‍♂Уголовник</b> уже выбрал, кто не проснётся этим утром...",
+            "description": "action:ugolovnik_select"
+        }
+    ],
+    "gurnalistselect_": [
+        {
+            "text": "Твой выбор: #username\n",
+            "title": "<b>👩🏼‍💻 Журналист</b> публикует новое интервью...",
+            "caption": "24",
+            "description": "action:gurnalist_select"
+        }
+    ],
+    "mafiyaselect_": [
+        {
+            "text": "Твой выбор: #username\n",
+            "description": "action:mafiya_select",
+            "caption": "25"
+        }
+    ],
+    "teniselect_": [
+        {
+            "text": "Твой выбор: #username\n",
+            "title": "<b>👥Тень</b> выбирает нового обладателя...",
+            "caption": "26",
+            "description": "action:teni_select"
+        }
+    ],
+    "vedma_lechit_": [
+        {
+            "text": "Твой выбор: #username\n",
+            "caption": "27",
+            "title": "<b>🧝‍♀️Ведьма</b> уже варит зелье...",
+            "description": "action:vedma_lechit"
+        }
+    ],
+    "vedma_morozit_": [
+        {
+            "text": "Твой выбор: #username\n",
+            "title": "<b>🧝‍♀️Ведьма</b> уже варит зелье...\n",
+            "caption": "27",
+            "description": "action:vedma_morozit"
+        }
+    ],
+    "vedma_kill_": [
+        {
+            "text": "Твой выбор: #username\n",
+            "title": "<b>🧝‍♀️Ведьма</b> уже варит зелье...\n",
+            "caption": "27",
+            "description": "action:vedma_kill"
+        }
+    ],
+    "manjakselect_": [
+        {
+            "text": "Твой выбор: #username\n",
+            "title": "<b>🔪Маньяк</b> уже заточил свой нож...",
+            "caption": "28",
+            "description": "action:manjak_select"
+        }
+    ],
+    "televedselect_": [
+        {
+            "text": "Твой выбор: #username\n",
+            "caption": "29",
+            "title": "<b>📺 Телеведущий</b> ведёт репортаж...\n",
+            "description": "action:televed_select"
+        }
+    ],
+    "ninzyaselect_": [
+        {
+            "text": "Твой выбор: #username\n",
+            "title": "<b>🥷🏻Ниндзя</b> уже кинул свой сюрикен...",
+            "caption": "30",
+            "description": "action:ninzya_select"
+        }
+    ],
+    "mainninzselect_": [
+        {
+            "text": "Твой выбор: #username",
+            "description": "action:mainninz_select",
+            "caption": "31"
+        }
+    ],
+    "shutnikselect_": [
+        {
+            "text": "Твой выбор: #username\n",
+            "caption": "32",
+            "description": "action:shutnik_select",
+            "title": "<b>🌚Шутник</b> придумал новую шутку..."
+        }
+    ],
+    "lunatikselect_": [
+        {
+            "text": "Твой выбор: #username\n",
+            "title": "<b>😴Лунатик</b> в поисках новой информации...",
+            "caption": "33",
+            "description": "action:lunatik_select"
+        }
+    ],
+    "muzhselect_": [
+        {
+            "text": "Твой выбор: #username\n",
+            "title": "<b>💍Муж</b> в поисках красотки...",
+            "caption": "34",
+            "description": "action:muzh_select"
+        }
+    ],
+    "sutenerselect_": [
+        {
+            "text": "Твой выбор: #username\n",
+            "title": "<b>👣Сутенер</b> идёт по следам красотки...",
+            "caption": "36",
+            "description": "action:sutener_select"
+        }
+    ],
+    "poet_vdohn": [
+        {
+            "text": "К кому сегодня пойдёшь за вдохновением?",
+            "inline": [
+                [
+                    {
+                        "text": "#username",
+                        "callback_data": "poetvisit_#id",
+                        "pattern": {
+                            "model": "GameUser",
+                            "where": "is_active=1 and game_id=#game_id",
+                            "params": {
+                                "username": "user",
+                                "id": "id",
+                                "game_id": "game_id"
+                            }
+                        }
+                    }
+                ]
+            ],
+            "caption": "3"
+        }
+    ],
+    "poet_butylka": [
+        {
+            "text": "В кого сегодня кинешь свою бутылку?",
+            "caption": "3",
+            "inline": [
+                [
+                    {
+                        "text": "#username",
+                        "is_kill": 1,
+                        "callback_data": "poetbutylka_#id",
+                        "pattern": {
+                            "model": "GameUser",
+                            "where": "is_active=1 and game_id=#game_id",
+                            "params": {
+                                "username": "user",
+                                "id": "id",
+                                "game_id": "game_id"
+                            }
+                        }
+                    }
+                ]
+            ]
+        }
+    ],
+    "poetbutylka_": [
+        {
+            "text": "Вы кинули бутылкой в #username",
+            "description": "action:poet_butylka",
+            "caption": "3",
+            "title": "<b>🧙🏼Бездомный поэт</b> уже готовит свою бутылку..."
+        }
+    ],
+    "oderjimkill_": [
+        {
+            "text": "Вы отомстили #username",
+            "title": "<b>🤩Одержимый</b> уже разработал план мести...",
+            "caption": "10",
+            "description": "action:oderjim_kill"
+        }
+    ],
+    "🛒 Магазин": [
+        {
+            "text": "<b>🧺 Добро пожаловать в магазин</b> 𝒲𝒾𝓃𝒹 ℳ𝒶𝒻𝒾𝒶 ℬ𝑜𝓉\n\nЗдесь вы можете купить всё необходимое для ещё более захватывающей игры!\n\nПеред каждой игрой в разделе <b>«Профиль»</b> убедитесь:\nВозле нужного атрибута стоит ✅ \n\nЕсли вы не хотите использовать определенный бафф из инвентаря – убедитесь, что возле баффа стоит ❌ \n\n<i>Приятных покупок 🎟</i>",
+            "inline": [
+                [
+                    {
+                        "text": "Баффы",
+                        "callback_data": "buybafs"
+                    },
+                    {
+                        "text": "Роли",
+                        "callback_data": "buyroles"
+                    }
+                ],
+                [
+                    {
+                        "text": "Другое",
+                        "callback_data": "buyothers"
+                    }
+                ]
+            ]
+        }
+    ],
+    "💰 Обменник": [
+        {
+            "text": "<b>Здесь вы можете обменять Виндкоины на Виндбаксы.</b>\n\n<b>Курс конвертации:</b>\n1 виндкоин - 100 виндбаксов\n3 виндкоина - 320 виндбаксов\n5 виндкоинов - 550 виндбаксов\n8 виндкоинов - 900 виндбаксов\n10 виндкоинов - 1250 виндбаксов\n20 виндкоинов - 2600 виндбаксов\n50 виндкоинов - 7000 виндбаксов\n\n<i>Выберите сумму для обмена</i>",
+            "inline": [
+                [
+                    {
+                        "text": "1 🪙",
+                        "callback_data": "exchangecb_1"
+                    },
+                    {
+                        "text": "3 🪙",
+                        "callback_data": "exchangecb_3"
+                    },
+                    {
+                        "text": "5 🪙",
+                        "callback_data": "exchangecb_5"
+                    }
+                ],
+                [
+                    {
+                        "text": "8 🪙",
+                        "callback_data": "exchangecb_8"
+                    },
+                    {
+                        "text": "10 🪙",
+                        "callback_data": "exchangecb_10"
+                    },
+                    {
+                        "text": "20 🪙",
+                        "callback_data": "exchangecb_20"
+                    }
+                ],
+                [
+                    {
+                        "text": "50 🪙",
+                        "callback_data": "exchangecb_50"
+                    }
+                ]
+            ]
+        }
+    ],
+    "professorteach": [
+        {
+            "text": "Вы обучаете 👩‍🎓 студента...",
+            "caption": "22",
+            "title": "<b>👨🏻‍🏫Профессор</b> обучает своего ученика...",
+            "description": "action:professor_teach"
+        }
+    ],
+    "main_ninzya_teach": [
+        {
+            "text": "Вы обучаете 🥷🏻Ниндзю...",
+            "caption": "31",
+            "title": "<b>🔍Главный ниндзя</b> обучает своего ученика...",
+            "description": "action:mainninz_teach"
+        }
+    ],
+    "/privacy": [
+        {
+            "text": "<a href=\"https://telegra.ph/Politika-Konfidencialnosti-07-08-6\">Публичная оферта</a>\n\n<a href=\"https://telegra.ph/Politika-konfidencialnosti-07-08-7\">Политика конфиденциальности</a>\n\n<a href=\"https://telegra.ph/Politika-bezopasnosti-07-08\">Политика безопасности</a>"
+        }
+    ],
+    "🎲 Играть": [
+        {
+            "text": "Играй вместе с нами в нашей официальной группе https://t.me/windmafiabotofficial"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+Приоритеты ходов ролей
+
+
+10 lubovnik_itog
+10 sutener_select_itog - есть увед
+13 shutnik_select_itog
+15 krasotka_itog - есть увед
+20 doctor_treat_itog - есть увед
+20 mafdoctor_treat_itog - есть увед
+50 oboroten_itog
+
+99 advokat_itog
+99 vedma_lechit_itog
+99 vedma_morozit_itog
+99 change_mirs_itog
+99 prezident_cigankaview_itog - переопределит видение циганки
+100 vedma_kill_itog
+100 blacklady_itog
+100 mafiya_select_itog
+100 manjak_itog
+100 oderjim_kill_itog
+100 poetfind_itog
+100 poet_butylka_itog
+100 puaro_check_itog
+100 puaro_kill_itog
+
+101 ciganka_itog
